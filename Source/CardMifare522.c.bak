@@ -1,0 +1,250 @@
+#include "p24FJ256GB106.h"
+#include "..\Header\HardwareProfile.h"
+#include "..\Header\Variabili.h"
+#include "..\Header\main.h"
+#include "..\Header\MfRC522.h"
+#include "..\Header\Mifare.h"
+#include "..\Header\Protocollo_0_07.h"
+
+extern void Write_MFRC522(unsigned char addr, unsigned char val);
+extern unsigned char Read_MFRC522(unsigned char addr);
+extern void SetBitMask(unsigned char reg, unsigned char mask);
+extern void ClearBitMask(unsigned char reg, unsigned char mask);
+extern void AntennaOn(void);
+extern void AntennaOff(void);
+extern void MFRC522_Reset(void);
+extern void MFRC522_Init(void);
+extern unsigned char MFRC522_Request(unsigned char reqMode, unsigned char *TagType);
+extern unsigned char MFRC522_ToCard(unsigned char command, unsigned char *sendData, unsigned char sendLen, unsigned char *backData, unsigned int *backLen);
+extern unsigned char MFRC522_Anticoll(unsigned char *serNum);
+extern void CalulateCRC(unsigned char *pIndata, unsigned char len, unsigned char *pOutData);
+extern unsigned char MFRC522_SelectTag(unsigned char *serNum);
+extern unsigned char MFRC522_Auth(unsigned char authMode, unsigned char BlockAddr, unsigned char *Sectorkey, unsigned char *serNum);
+extern unsigned char MFRC522_Read(unsigned char blockAddr, unsigned char *recvData);
+extern unsigned char MFRC522_Write(unsigned char blockAddr, unsigned char *writeData);
+extern void MFRC522_Halt(void);
+
+unsigned char LetturaBloccoMifare(unsigned char Settore,unsigned char BloccoLettura);
+//unsigned char Cnt_lettura=0;
+
+
+/**************************************************************************
+*				void VerificaCardMifare(void)
+*
+*		Permette di Verificare la Presenza della Card Mifare 
+*		e restituisce il tipo (Formato) di Card Mifare Rilevata
+*
+*
+
+**************************************************************************/
+
+unsigned char VerificaPresenzaMifare(void)
+{
+unsigned char stato = 0;
+unsigned int Tipologia_Card_Letta=0;
+
+if (Fase_Masterizzazione == 0)
+	{
+	//stato = MFRC522_Request(PICC_REQIDL, str);				// ricerco nel campo radio se è presente una Card Mifare
+	stato = MFRC522_Request(PICC_REQALL, str);				// ricerco nel campo radio se è presente una Card Mifare
+	if (stato == MI_OK)   									// se Card Presente /Rilevata
+		{  
+		Tipologia_Card_Letta = (str[0] <<8)  + str[1];
+		stato = MFRC522_Anticoll(str);						// Attivo il comando di Anti-collisione, e mi faccio restituire il seriale (4 bytes) ed la tipologia della card
+		memcpy(serNum, str, 5);
+		if (stato == MI_OK)								// Se card valida,
+			{
+			if(MFRC522_SelectTag(serNum))					// avvio e stabilisco la comunicazione con la Card con il seriale avvicinato
+				{
+				if(Flag_PresenzaCardMifare == 0)
+					Flag_PresenzaCardMifare = 1;
+				else
+					return 4;
+					
+//				Fase_Masterizzazione = 1;
+				if (Tipologia_Card_Letta == 0x4400)				// se Card Ultralight
+					return MIFARE_ULTRALIGHT;
+	
+				if (Tipologia_Card_Letta == 0x0400)				// se Card ONE S50
+					return MIFARE_ONE_S50;
+	
+				if (Tipologia_Card_Letta == 0x0200)				// se Card ONE S70
+					return MIFARE_ONE_S70;
+	
+				if (Tipologia_Card_Letta == 0x0800)				// se Card PRO_x
+					return MIFARE_PRO_X;
+	
+				if (Tipologia_Card_Letta == 0x4403)				// se Card DESFIRE
+					return MIFARE_DESFIRE;			
+				}
+			}
+		}
+	return 0;
+	}
+}
+
+/**************************************************************************
+*				void VerificaCardMifare(void)
+*
+*		Permette di Verificare il PSC del Settore Interessato, in base alla tipologia passata
+*
+*	unsigned char Settore = Numero del Settore Da verificare
+*	unsigned char TipoCard = tipologia di card da verificare
+*
+*	 return : Esito Confronto PSC: 1= errore (PSC non VALIDO), 0 =PSC OK
+**************************************************************************/
+
+unsigned char VerificaPSCMifare(unsigned char Settore,unsigned char TipoCard)
+{
+unsigned char BloccoCalcolato;
+unsigned char statusPSC;
+unsigned char ind;
+
+switch (TipoCard)
+	{
+	case MIFARE_ULTRALIGHT:
+		{
+		BloccoCalcolato = 3 + (4 * Settore);
+		}
+	break;
+
+	case MIFARE_ONE_S50: case MIFARE_ONE_S70:
+		{
+		BloccoCalcolato = 3 + (4 * Settore);
+	//	BloccoCalcolato = (4 * Settore);
+		}
+	break;
+
+	case MIFARE_PRO_X:
+		{
+		BloccoCalcolato = 3 + (4 * Settore);
+		}
+	break;
+
+	case MIFARE_DESFIRE:
+		{
+		BloccoCalcolato = 3 + (4 * Settore);
+		}
+	break;
+	}
+
+statusPSC = MFRC522_Auth(KEY_A, BloccoCalcolato, Sectorkey, serNum);	// Controllo il blocco contenenti settore Interesato della Card 	
+
+if (statusPSC == MI_OK)												// se tutto a posto
+	return OK;														// restituisco conferma (nessun errore)
+else																// Altrimenti
+	return KO;														// errore confronto PSC
+
+}
+
+/**************************************************************************
+*				unsigned char ModificaPSC(void)
+*
+*		Permette di Modificare il blocco3 di ciascun settore aggironandone i bit di Accesso 
+*
+*	unsigned char Settore = Numero del Settore Da verificare
+*	unsigned char TipoCard = tipologia di card da verificare
+*	unsigned char* NewSecurityCode = puntatore al buffer del nuvo PSC
+*
+*	 return : Esito Modifica PSC: 1 = Sosituzione OK, 0= errore (Errore Sostituzione- PSC non VALIDO) 
+**************************************************************************/
+
+unsigned char ModificaPSC(unsigned char Settore,unsigned char TipoCard,unsigned char* NewSecurityCode)
+{
+unsigned char BloccoCalcolato;
+unsigned char StatusPSC;
+unsigned char Blocco3[16];
+unsigned char EsitoModifica=KO;
+
+switch (TipoCard)
+	{
+	case MIFARE_ULTRALIGHT:
+		{
+		BloccoCalcolato = 3 + (4 * Settore);
+		}
+	break;
+
+	case MIFARE_ONE_S50: case MIFARE_ONE_S70:
+		{
+		BloccoCalcolato = 3 + (4 * Settore);
+		}
+	break;
+
+	case MIFARE_PRO_X:
+		{
+		BloccoCalcolato = 3 + (4 * Settore);
+		}
+	break;
+
+	case MIFARE_DESFIRE:
+		{
+		BloccoCalcolato = 3 + (4 * Settore);
+		}
+	break;
+	}
+
+StatusPSC = MFRC522_Auth(KEY_A, BloccoCalcolato, Sectorkey, serNum);	// Controllo il blocco contenenti settore Interesato della Card 	
+if (StatusPSC == MI_OK)												// se tutto a posto
+	{
+     for (tmp2=0;tmp2<6;tmp2++)  										// leggo le chiavi
+        Blocco3[tmp2]=*NewSecurityCode++;  								// lettura nuovo PSC da bus
+         
+     Blocco3[6]=0xFF;
+     Blocco3[7]=0x07;
+     Blocco3[8]=0x80;
+     Blocco3[9]=0x69;
+     
+    for (tmp2=0;tmp2<6;tmp2++)  										// leggo le chiavi
+        Blocco3[10+tmp2]=0xFF;  							// lettura nuovo PSC da bus
+
+	EsitoModifica=MFRC522_Write(BloccoCalcolato, Blocco3);					// inizia la lettura del blocco
+	if (EsitoModifica==MI_OK)
+		return OK;
+ 	}
+else
+	{
+	//	Fase_Masterizzazione = 0;
+		return 3;			// 
+ 	}  
+return KO;
+}
+
+
+/**************************************************************************
+*		
+*			LetturaBloccoMifare(unsigned char BloccoLettura)
+*
+*	Legge un blocco di 16 Byte dalla tessera Mifare	(una riga )
+*
+*	unsigned char Settore = indica il Settore Su cui effettuare la lettura
+*	unsigned char BloccoLettura = indica il Blocco di Lettura sulla Card
+**************************************************************************/
+
+unsigned char LetturaBloccoMifare(unsigned char Settore,unsigned char BloccoLettura)
+{
+unsigned char tmpRead;
+unsigned char tmpBlockR;
+
+tmpBlockR = (Settore * 4)+ BloccoLettura;
+
+return MFRC522_Read(tmpBlockR, Buffer_Mifare);					// inizia la lettura del blocco
+}
+
+/**************************************************************************
+*		
+*			LetturaBloccoMifare(unsigned char BloccoLettura)
+*
+*	Legge un blocco di 16 Byte dalla tessera Mifare	(una riga )
+*
+*	unsigned char Settore = indica il Settore Su cui effettuare la lettura
+*	unsigned char BloccoScrittura = indica il Blocco su cui scrivere sulla Card
+**************************************************************************/
+
+unsigned char ScritturaBloccoMifare(unsigned char Settore,unsigned char BloccoScrittura)
+{
+unsigned char tmpWrite;
+unsigned char tmpBlockW;
+
+tmpBlockW = (Settore * 4)+ BloccoScrittura;
+return MFRC522_Write(tmpBlockW, Buffer_Scrittura_Mifare);					// inizia la lettura del blocco
+}

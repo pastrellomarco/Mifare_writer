@@ -1,0 +1,8 @@
+
+AVVIA FORMATTAZIONE PSC CARD da NUOVA a LABNET
+Cmd				[index 13] = 22 
+initial PSC		[index 14] = 0 = vuoto, 1 = Labnet
+final PSC		[index 15] = 0 = vuoto, 1 = Labnet
+numero di card	[index 16] =  x 
+
+2 0 0 0 0 0 0 255 255 255 255 2 254 22 0 1 100 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3
