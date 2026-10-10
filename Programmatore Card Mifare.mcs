@@ -1,0 +1,201 @@
+[Header]
+MagicCookie={0b13fe8c-dfe0-40eb-8900-6712719559a7}
+Version=1.0
+[File000]
+Location=D:\Users\pastr\git\Mifare_Card_init\HardwareProfile.o
+Folder=Intermediary
+DeviceName=PIC24FJ256GB106
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Program Files (x86)\Microchip\MPLAB ASM30 Suite\Support||$(INCDIR)||$(LIBDIR)|C:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|Source\HardwareProfile.c|Source\Utility.c|Source\Interrupt.c|Source\ST7735.c|Source\MSPI.c|ProgrammatoreCardMifare_v0_01.c|Source\USB\usb_descriptors.c|Source\USB\usb_device.c|Source\USB\usb_function_hid.c|Source\USB\usb_hal_pic24.c|Source\USB\USB_mng.c|Source\MfRC522.c|Source\CardMifare522.c||<obj>||<lib>||<lkr>|app_msd_boot_p24FJ256GB106.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O1
+TraceCmdString=
+DebugOptions=
+[File001]
+Location=D:\Users\pastr\git\Mifare_Card_init\Utility.o
+Folder=Intermediary
+DeviceName=PIC24FJ256GB106
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Program Files (x86)\Microchip\MPLAB ASM30 Suite\Support||$(INCDIR)||$(LIBDIR)|C:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|Source\HardwareProfile.c|Source\Utility.c|Source\Interrupt.c|Source\ST7735.c|Source\MSPI.c|ProgrammatoreCardMifare_v0_01.c|Source\USB\usb_descriptors.c|Source\USB\usb_device.c|Source\USB\usb_function_hid.c|Source\USB\usb_hal_pic24.c|Source\USB\USB_mng.c|Source\MfRC522.c|Source\CardMifare522.c||<obj>||<lib>||<lkr>|app_msd_boot_p24FJ256GB106.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O1
+TraceCmdString=
+DebugOptions=
+[File002]
+Location=D:\Users\pastr\git\Mifare_Card_init\Interrupt.o
+Folder=Intermediary
+DeviceName=PIC24FJ256GB106
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Program Files (x86)\Microchip\MPLAB ASM30 Suite\Support||$(INCDIR)||$(LIBDIR)|C:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|Source\HardwareProfile.c|Source\Utility.c|Source\Interrupt.c|Source\ST7735.c|Source\MSPI.c|ProgrammatoreCardMifare_v0_01.c|Source\USB\usb_descriptors.c|Source\USB\usb_device.c|Source\USB\usb_function_hid.c|Source\USB\usb_hal_pic24.c|Source\USB\USB_mng.c|Source\MfRC522.c|Source\CardMifare522.c||<obj>||<lib>||<lkr>|app_msd_boot_p24FJ256GB106.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O1
+TraceCmdString=
+DebugOptions=
+[File003]
+Location=D:\Users\pastr\git\Mifare_Card_init\ST7735.o
+Folder=Intermediary
+DeviceName=PIC24FJ256GB106
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Program Files (x86)\Microchip\MPLAB ASM30 Suite\Support||$(INCDIR)||$(LIBDIR)|C:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|Source\HardwareProfile.c|Source\Utility.c|Source\Interrupt.c|Source\ST7735.c|Source\MSPI.c|ProgrammatoreCardMifare_v0_01.c|Source\USB\usb_descriptors.c|Source\USB\usb_device.c|Source\USB\usb_function_hid.c|Source\USB\usb_hal_pic24.c|Source\USB\USB_mng.c|Source\MfRC522.c|Source\CardMifare522.c||<obj>||<lib>||<lkr>|app_msd_boot_p24FJ256GB106.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O1
+TraceCmdString=
+DebugOptions=
+[File004]
+Location=D:\Users\pastr\git\Mifare_Card_init\MSPI.o
+Folder=Intermediary
+DeviceName=PIC24FJ256GB106
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Program Files (x86)\Microchip\MPLAB ASM30 Suite\Support||$(INCDIR)||$(LIBDIR)|C:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|Source\HardwareProfile.c|Source\Utility.c|Source\Interrupt.c|Source\ST7735.c|Source\MSPI.c|ProgrammatoreCardMifare_v0_01.c|Source\USB\usb_descriptors.c|Source\USB\usb_device.c|Source\USB\usb_function_hid.c|Source\USB\usb_hal_pic24.c|Source\USB\USB_mng.c|Source\MfRC522.c|Source\CardMifare522.c||<obj>||<lib>||<lkr>|app_msd_boot_p24FJ256GB106.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O1
+TraceCmdString=
+DebugOptions=
+[File005]
+Location=D:\Users\pastr\git\Mifare_Card_init\ProgrammatoreCardMifare_v0_01.o
+Folder=Intermediary
+DeviceName=PIC24FJ256GB106
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Program Files (x86)\Microchip\MPLAB ASM30 Suite\Support||$(INCDIR)||$(LIBDIR)|C:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|Source\HardwareProfile.c|Source\Utility.c|Source\Interrupt.c|Source\ST7735.c|Source\MSPI.c|ProgrammatoreCardMifare_v0_01.c|Source\USB\usb_descriptors.c|Source\USB\usb_device.c|Source\USB\usb_function_hid.c|Source\USB\usb_hal_pic24.c|Source\USB\USB_mng.c|Source\MfRC522.c|Source\CardMifare522.c||<obj>||<lib>||<lkr>|app_msd_boot_p24FJ256GB106.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O1
+TraceCmdString=
+DebugOptions=
+[File006]
+Location=D:\Users\pastr\git\Mifare_Card_init\usb_descriptors.o
+Folder=Intermediary
+DeviceName=PIC24FJ256GB106
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Program Files (x86)\Microchip\MPLAB ASM30 Suite\Support||$(INCDIR)||$(LIBDIR)|C:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|Source\HardwareProfile.c|Source\Utility.c|Source\Interrupt.c|Source\ST7735.c|Source\MSPI.c|ProgrammatoreCardMifare_v0_01.c|Source\USB\usb_descriptors.c|Source\USB\usb_device.c|Source\USB\usb_function_hid.c|Source\USB\usb_hal_pic24.c|Source\USB\USB_mng.c|Source\MfRC522.c|Source\CardMifare522.c||<obj>||<lib>||<lkr>|app_msd_boot_p24FJ256GB106.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O1
+TraceCmdString=
+DebugOptions=
+[File007]
+Location=D:\Users\pastr\git\Mifare_Card_init\usb_device.o
+Folder=Intermediary
+DeviceName=PIC24FJ256GB106
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Program Files (x86)\Microchip\MPLAB ASM30 Suite\Support||$(INCDIR)||$(LIBDIR)|C:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|Source\HardwareProfile.c|Source\Utility.c|Source\Interrupt.c|Source\ST7735.c|Source\MSPI.c|ProgrammatoreCardMifare_v0_01.c|Source\USB\usb_descriptors.c|Source\USB\usb_device.c|Source\USB\usb_function_hid.c|Source\USB\usb_hal_pic24.c|Source\USB\USB_mng.c|Source\MfRC522.c|Source\CardMifare522.c||<obj>||<lib>||<lkr>|app_msd_boot_p24FJ256GB106.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O1
+TraceCmdString=
+DebugOptions=
+[File008]
+Location=D:\Users\pastr\git\Mifare_Card_init\usb_function_hid.o
+Folder=Intermediary
+DeviceName=PIC24FJ256GB106
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Program Files (x86)\Microchip\MPLAB ASM30 Suite\Support||$(INCDIR)||$(LIBDIR)|C:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|Source\HardwareProfile.c|Source\Utility.c|Source\Interrupt.c|Source\ST7735.c|Source\MSPI.c|ProgrammatoreCardMifare_v0_01.c|Source\USB\usb_descriptors.c|Source\USB\usb_device.c|Source\USB\usb_function_hid.c|Source\USB\usb_hal_pic24.c|Source\USB\USB_mng.c|Source\MfRC522.c|Source\CardMifare522.c||<obj>||<lib>||<lkr>|app_msd_boot_p24FJ256GB106.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O1
+TraceCmdString=
+DebugOptions=
+[File009]
+Location=D:\Users\pastr\git\Mifare_Card_init\usb_hal_pic24.o
+Folder=Intermediary
+DeviceName=PIC24FJ256GB106
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Program Files (x86)\Microchip\MPLAB ASM30 Suite\Support||$(INCDIR)||$(LIBDIR)|C:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|Source\HardwareProfile.c|Source\Utility.c|Source\Interrupt.c|Source\ST7735.c|Source\MSPI.c|ProgrammatoreCardMifare_v0_01.c|Source\USB\usb_descriptors.c|Source\USB\usb_device.c|Source\USB\usb_function_hid.c|Source\USB\usb_hal_pic24.c|Source\USB\USB_mng.c|Source\MfRC522.c|Source\CardMifare522.c||<obj>||<lib>||<lkr>|app_msd_boot_p24FJ256GB106.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O1
+TraceCmdString=
+DebugOptions=
+[File010]
+Location=D:\Users\pastr\git\Mifare_Card_init\USB_mng.o
+Folder=Intermediary
+DeviceName=PIC24FJ256GB106
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Program Files (x86)\Microchip\MPLAB ASM30 Suite\Support||$(INCDIR)||$(LIBDIR)|C:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|Source\HardwareProfile.c|Source\Utility.c|Source\Interrupt.c|Source\ST7735.c|Source\MSPI.c|ProgrammatoreCardMifare_v0_01.c|Source\USB\usb_descriptors.c|Source\USB\usb_device.c|Source\USB\usb_function_hid.c|Source\USB\usb_hal_pic24.c|Source\USB\USB_mng.c|Source\MfRC522.c|Source\CardMifare522.c||<obj>||<lib>||<lkr>|app_msd_boot_p24FJ256GB106.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O1
+TraceCmdString=
+DebugOptions=
+[File011]
+Location=D:\Users\pastr\git\Mifare_Card_init\MfRC522.o
+Folder=Intermediary
+DeviceName=PIC24FJ256GB106
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Program Files (x86)\Microchip\MPLAB ASM30 Suite\Support||$(INCDIR)||$(LIBDIR)|C:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|Source\HardwareProfile.c|Source\Utility.c|Source\Interrupt.c|Source\ST7735.c|Source\MSPI.c|ProgrammatoreCardMifare_v0_01.c|Source\USB\usb_descriptors.c|Source\USB\usb_device.c|Source\USB\usb_function_hid.c|Source\USB\usb_hal_pic24.c|Source\USB\USB_mng.c|Source\MfRC522.c|Source\CardMifare522.c||<obj>||<lib>||<lkr>|app_msd_boot_p24FJ256GB106.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O1
+TraceCmdString=
+DebugOptions=
+[File012]
+Location=D:\Users\pastr\git\Mifare_Card_init\CardMifare522.o
+Folder=Intermediary
+DeviceName=PIC24FJ256GB106
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Program Files (x86)\Microchip\MPLAB ASM30 Suite\Support||$(INCDIR)||$(LIBDIR)|C:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|Source\HardwareProfile.c|Source\Utility.c|Source\Interrupt.c|Source\ST7735.c|Source\MSPI.c|ProgrammatoreCardMifare_v0_01.c|Source\USB\usb_descriptors.c|Source\USB\usb_device.c|Source\USB\usb_function_hid.c|Source\USB\usb_hal_pic24.c|Source\USB\USB_mng.c|Source\MfRC522.c|Source\CardMifare522.c||<obj>||<lib>||<lkr>|app_msd_boot_p24FJ256GB106.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O1
+TraceCmdString=
+DebugOptions=
+[File013]
+Location=D:\Users\pastr\git\Mifare_Card_init\Programmatore Card Mifare.cof
+Folder=Output
+DeviceName=PIC24FJ256GB106
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={433C3D55-811D-409D-A6BF-159CF9355B42}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-ld.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Program Files (x86)\Microchip\MPLAB ASM30 Suite\Support||$(INCDIR)||$(LIBDIR)|C:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|Source\HardwareProfile.c|Source\Utility.c|Source\Interrupt.c|Source\ST7735.c|Source\MSPI.c|ProgrammatoreCardMifare_v0_01.c|Source\USB\usb_descriptors.c|Source\USB\usb_device.c|Source\USB\usb_function_hid.c|Source\USB\usb_hal_pic24.c|Source\USB\USB_mng.c|Source\MfRC522.c|Source\CardMifare522.c||<obj>||<lib>||<lkr>|app_msd_boot_p24FJ256GB106.gld||
+SuiteArgsString=
+ToolArgsString=--heap=1024 --report-mem -o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)"
+TraceCmdString=
+DebugOptions=
+[File014]
+Location=D:\Users\pastr\git\Mifare_Card_init\Programmatore Card Mifare.hex
+Folder=Output
+DeviceName=PIC24FJ256GB106
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={433C3D55-811D-409D-A6BF-159CF9355B42}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-ld.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Program Files (x86)\Microchip\MPLAB ASM30 Suite\Support||$(INCDIR)||$(LIBDIR)|C:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|Source\HardwareProfile.c|Source\Utility.c|Source\Interrupt.c|Source\ST7735.c|Source\MSPI.c|ProgrammatoreCardMifare_v0_01.c|Source\USB\usb_descriptors.c|Source\USB\usb_device.c|Source\USB\usb_function_hid.c|Source\USB\usb_hal_pic24.c|Source\USB\USB_mng.c|Source\MfRC522.c|Source\CardMifare522.c||<obj>||<lib>||<lkr>|app_msd_boot_p24FJ256GB106.gld||
+SuiteArgsString=
+ToolArgsString=--heap=1024 --report-mem -o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)"
+TraceCmdString=
+DebugOptions=
+[TOOL_LOC_STAMPS]
+tool_loc{069BD372-6CA0-40D4-BF2F-5DC806D05083}=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+tool_loc{433C3D55-811D-409D-A6BF-159CF9355B42}=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-ld.exe

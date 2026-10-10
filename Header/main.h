@@ -7,7 +7,7 @@
 
 /************************ ATTIVAZIONE DEBUG ********************************/
 
-#define DEBUG									// permette di modificare alcune impostazioni-solamente in debug
+//#define DEBUG									// permette di modificare alcune impostazioni-solamente in debug
 //#define VERIFICA_CHECKSUM
 /************************ PREFERENZE COMUNICAZIONI ********************************/
 
@@ -15,9 +15,6 @@
 
 //#define USA_USB				// Se definito Attiva Gestione USB
 
-//#define ADDRESS_MEM			0xA8	// indirizzo fisico della memoria I2C su cui caricare/leggere la congiurazione del sistema
-//#define ADDRESS_OROLOGIO		0xDE	// indirizzo fisico della memoria I2C su cui caricare/leggere la congiurazione del sistema
-//
 /************************ DEFINIZIONI TEMPISTICHE SISTEMA ********************************/
 
 //#define TIMER4_CENTESIMI				3			// Costante che definisce le tempistiche del timer 4 per generare degli interrupt di 10ms 

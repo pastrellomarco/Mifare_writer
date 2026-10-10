@@ -20,23 +20,7 @@
 /****************** INDICI CICLI FOR - WHILE **********************************/
 unsigned char t;								// variabile per ciclo for ad utilizzo esclusivo dei controlli sui timer degli ingressi
 
-//unsigned char b;								// variabile temporanea per indicare il numero di caratteri del nmero convertito
-//unsigned char i;
-//unsigned char j;
-//unsigned char l;
-//unsigned char k;
-
-//unsigned char n;
-//unsigned int y;
-//unsigned int w;
-//unsigned int x;
-//unsigned int z;
-//unsigned int kk;
-//unsigned int ww;
-//
 unsigned char tmp1,tmp2,tmp3;
-//unsigned int temp16_1;
-//unsigned int temp16_2;
 
 /************************** TIMERS, OROLOGIO e DELAY ********************************************/
 
@@ -50,12 +34,7 @@ unsigned char timer_LED_CPU = TIMER_CPU;
 
 unsigned char poll_timer_mifare = 0;					// Contiene il timer per il controllo cadenzato dell'accesso alla Card Mifare
 
-unsigned char Flag_leggi_mifare ;
-///************************* BUFFER ******************************************************/
-//
-//unsigned char Buffer_RS485In[64];						// Buffer per dati in Uccita dalla RS485						
-//unsigned char Buffer_RS485Out[64];						// Buffer per dati in Ingresso sulla RS485	
-//unsigned char Buffer_485_temp[64];						// Buffer per dati i dati parziali
+unsigned char Flag_leggi_mifare;
 
 /************************************** VARIABILI SISTEMA **************************/
 
@@ -63,9 +42,6 @@ unsigned char IP_Dispositivo[4]={IP_DEFAULT_H,IP_DEFAULT_MH,IP_DEFAULT_ML,IP_DEF
 unsigned char ID_Gruppo; 								// Contiene    il gruppo di Funzionamento dell'apparecchio (quello con cui risponde al BUS)
 unsigned int ID_Struttura;								// Contiene il codice identificativo della struttura su cui devono funzionare le Card inserite
 unsigned char IP_Address_temp[4];						// Valore utilizzato per convertire l'IP presente nei files di configurazione
-
-
-//unsigned char Fase_Presenza = 0;
 
 /************************************** VARIABILI DISPLAY **************************/
 
@@ -98,29 +74,12 @@ unsigned char blocco_temp;					// Blocco Mifare di Lettura/Scrittura durante Mas
 unsigned char CellaStart_temp;				// Cella Start SLE4442 per Lettura/Scrittura durante Masterizzazione
 unsigned char NumeroCelle_temp;				// numero Cella  SLE4442 da Leggere/scrivere durante Masterizzazione
 
-//unsigned char psc_1;
-//unsigned char psc_2;
-//unsigned char psc_3;
-//
 /******************* VARIABILI MIFARE **********************/
 
 unsigned char Esito_Mifare;
-//unsigned char status;										// coneine l'esito delle operazione di accesso alla card MIFARE
-//unsigned char blockAddr;        							// Selection operation block address 0 to 63
-
-
 unsigned char myUID[5];										// contiene il codice seriale della card con cui interagire						
-
-//unsigned char Fase_Masterizzazione;
 unsigned char str[16];										// Contiene il codice seriale e i dati prelevati dalla card Mifare durante il primo avvicinamneto della Card
-
-	
-//unsigned char FormatoCardRilevata=0;
-
 unsigned char InizializzaMifare;
-
-
-//unsigned char Sectorkey_Nuovo[6]={0,0,0,0,0,0};
 
 unsigned char Sectorkey[6]={0,0,0,0,0,0};
 unsigned char Default_Key[6] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
@@ -128,10 +87,6 @@ unsigned char Default_Key[6] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
 unsigned char New_KeyA[6] = {0x00, 0xEB, 0x00, 0x36, 0x00, 0x29};
 unsigned char New_KeyB[6] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
 
-
-
-//unsigned char Card_Presente_Mifare= 0;
-//unsigned char Tipo_CardPresente_Mifare=0;					// Tipologia di Card presente nel Masterizzatore
 unsigned char TipologiaCard;
 
 /**************************************** USB ******************************/
@@ -151,18 +106,14 @@ unsigned char checksumUSB_TX = 0;				// Contiene il valore della checksum calcol
 USB_HANDLE USBOutHandle = 0;
 USB_HANDLE USBInHandle = 0;
 
-
 unsigned char ActualPSCType = 0;
 unsigned char NewPSCType = 1;
 unsigned char NumberOfCardsToDo = 100;
 unsigned char StartFormatCard = 1;
 
-
 /****************************** PROTOTIPI DI FUNZIONE INTERNE *************************/
 
 void ProcessUSB(void);
-void AnalisiMifareCard(void);
-void VerificaPresenzaCard(void);
 
 /********************************** PROTOTIPI DI FUNZIONI *******************************/
 
@@ -177,7 +128,6 @@ extern long tick_current(void);
 
 
 extern unsigned char u16toa (unsigned int value,char *pBuffer, unsigned char radix);
-
 
 
 /******************************** INIZIALIZZAZIONE STRUTTURE *************************/
@@ -216,7 +166,7 @@ enum formatStatus {FORMAT_INIT = 0, CHECK_INITIAL_PSC, FORMAT_NEW_CARD, CHECK_RI
 								
 				memset (bufferCardDone, 0x00, 4);
 				
-				ST7735_fillRect(0, 60, 32, 16, ST7735_BLACK);		// final check PSC
+				ST7735_fillRect(0, 60, 24, 16, ST7735_BLACK);		// final check PSC
 				tmpText = u16toa (NumOfCardDone, bufferCardDone, 10);		// eseguo conversione nuemri in caratteri
 				ST7735_drawString(0, 60, bufferCardDone, ST7735_BLUE, 2);
 
@@ -404,7 +354,6 @@ unsigned char status;
 
 void SplashScreen(void)
 {
-//ST7735_DrawBitmap(0, 0, Logo, SCREEN_WIDTH, SCREEN_HEIGHT);
 
 ST7735_fillScreen(ST7735_BLACK);
 
@@ -438,7 +387,7 @@ unsigned char tmp_len;
 			ST7735_drawString(90, 60, "SI", ST7735_WHITE, 2);
 			memset(CardTypebuffer, 0x00, 15);
 			
-			switch (TipologiaCard)
+			switch (cardReadType)
 			{
 				case MIFARE_ULTRALIGHT:		strcpy (CardTypebuffer, Text_UltraLight);		break;
 				case MIFARE_ONE_S50:		strcpy (CardTypebuffer, Text_MifareOne_S50);	break;
